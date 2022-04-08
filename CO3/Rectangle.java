@@ -1,14 +1,10 @@
 import java.util.*;
 
-class Rectangle {
+class rectangle {
     double width;
     double length;
     double area;
     String color;
-
-    rectangle() {
-
-    }
 
     rectangle(double w, double l, String c) {
         this.width = w;
@@ -42,7 +38,7 @@ class Rectangle {
 
     public static void main(String[] args) {
         rectangle rectangle_1 = new rectangle(10, 5, "red");
-        rectangle rectangle_2 = new rectangle();
+        rectangle rectangle_2 = new rectangle(20, 10, "blue");
         rectangle_2.read();
         if ((rectangle_1.get_area() == rectangle_2.get_area()) && (rectangle_1.get_color().equals(rectangle_2.get_color()))) {
             System.out.println("Rectangles are same");
