@@ -1,29 +1,56 @@
-import java.util.*;  
+import java.util.Scanner;
+
 public class Employee {
-    String ID;
-    String name;
-    int salary;
+    int eNo;
+    String eName;
+    double eSalary;
 
-    public void read(){
-        Scanner sc= new Scanner(System.in);
-        System.out.print("Enter ID : "); 
-        ID = sc.nextLine();
-        System.out.print("Enter Name : "); 
-        name = sc.nextLine();
-        System.out.print("Enter monthly salary : "); 
-        salary = sc.nextInt();
+    Scanner sc = new Scanner(System.in);
+
+    void GetData() {
+
+        System.out.println("Enter Employee No. : ");
+        eNo = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter Employee Name : ");
+        eName = sc.nextLine();
+        System.out.println("Enter Employee salary : ");
+        eSalary = Integer.parseInt(sc.nextLine());
     }
 
-    public void display(){
-        System.out.println("Year salary is : "+ salary*12);
+    void PutData() {
+        System.out.println("Employee Number : " + eNo);
+        System.out.println("Employee Name : " + eName);
+        System.out.println("Employee Salary : " + eSalary);
+        System.exit(0);
     }
-    public static void main(String []args){
-        employee emp_1 = new employee();
-        emp_1.read();
-        emp_1.display();
 
-        employee emp_2 = new employee();
-        emp_2.read();
-        emp_2.display();
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int size;
+        int n;
+        System.out.println("How much Employees you want to enter : ");
+        size = sc.nextInt();
+        Employee[] arr = new Employee[size];
+        int i;
+        for (i = 0; i < size; i++) {
+            arr[i] = new Employee();
+        }
+        for (i = 0; i < size; i++) {
+            System.out.println("Enter detais of " + (i + 1) + " Employee");
+            arr[i].GetData();
+        }
+
+        System.out.println("Enter the Employee Number to search the Employee : ");
+        n = sc.nextInt();
+
+        for (i = 0; i < size; i++) {
+            if (arr[i].eNo == n) {
+                System.out.println("Details of Employee");
+                arr[i].PutData();
+            }
+        }
+        System.out.println("Enter a valid Employee Number");
+
     }
+
 }
