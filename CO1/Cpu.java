@@ -1,50 +1,57 @@
-class Cpu {
-    int price;
+import java.util.Scanner;
 
-    Cpu(int p) {
-        this.price = p;
+class CPU {
+    double price;
+
+    CPU(double price) {
+        this.price = price;
     }
 
     class Processor {
-        int cores;
-        String manufacture;
+        int no_of_cores;
+        String manufacturer;
 
-        Processor(int n, String m) {
-            this.cores = n;
-            this.manufacture = m;
-        }
-
-        void display() {
-            System.out.println("No of Cores : " + this.cores);
-            System.out.println("Processor manufactures : " + this.manufacture);
+        void processorDetails(Scanner read) {
+            System.out.print("Enter no.of cores in processor:");
+            no_of_cores = read.nextInt();
+            read.nextLine();
+            System.out.print("Enter the manufacturer name:");
+            manufacturer = read.nextLine();
         }
     }
 
-    static class Ram {
-        int memory;
-        String manufacture;
-
-        Ram(int n, String m) {
-            this.memory = n;
-            this.manufacture = m;
+    static class RAM {
+        static int memory;
+        static String manufacturer;
+        static void ramDetails(Scanner read) {
+            System.out.print("Enter the size of memory(in GB):");
+            memory = read.nextInt();
+            read.nextLine();
+            System.out.print("Enter the manufacturer name:");
+            manufacturer = read.nextLine();
         }
 
-        void display() {
-            System.out.println("Memory Size : " + this.memory);
-            System.out.println("Memory manufactures : " + this.manufacture);
-        }
     }
 
-    void display() {
-        System.out.println("Price of CPU : " + this.price);
+    void Display(Scanner read){
+        Processor p= new Processor();
+        p.processorDetails(read);
+        RAM.ramDetails(read);
+        System.out.println("\nProcessor Details");
+        System.out.println("__________________");
+        System.out.println("\nextLineNo of Cores : "+p.no_of_cores+"\nManufacturer : "+p.manufacturer+"\n");
+        System.out.println("Memory Details");
+        System.out.println("__________________");
+        System.out.println("\nMemory size : "+RAM.memory+"GB\nManufacturer : "+RAM.manufacturer+"\n");
     }
+}
 
-    public static void main(String[] args) {
-        Cpu intel = new Cpu(23000);
-        Cpu.Processor i_processor = intel.new Processor(4, "intel");
-        Cpu.Ram i_ram = new Ram(1024, "Asus");
-        intel.display();
-        i_processor.display();
-        i_ram.display();
+public class DisplayCpuInfo {
+    public static void main(String args[]) {
+        Scanner read = new Scanner(System.in);
+        System.out.print("\nEnter the price of the cpu:");
+        double price = read.nextDouble();
+        CPU c1 = new CPU(price);
+        c1.Display(read);
     }
 }
