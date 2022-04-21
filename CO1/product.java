@@ -1,30 +1,35 @@
-class product
-{
-	String pcode;
-  	String pname;
-  	int prize;
+class Product {
+    String pcode;
+    String pname;
+    double price;
 
-	public product(String pcode_get, String pname_get, int prize_get)
-	{
-   		pcode=pcode_get;
-  		pname= pname_get;
-  		prize=prize_get;
-	}
-	public int get_prize()
-	{
-		return prize;
-	}
-	public static void main(String[] args)
-	{
-		product obj1 = new product("p100","Soap",20);
-       		product obj2 = new product("p101","Biscut",25);
-       		product obj3 = new product("p105","Shampoo",75);
+    Product(String pcode, String pname, double price) {
+        this.pcode = pcode;
+        this.pname = pname;
+        this.price = price;
+    }
 
-       		if(obj1.prize<=obj3.prize && obj1.prize<=obj2.prize)
-     			System.out.println("Lowest product is: "+obj1.pname);
-		if(obj2.prize<=obj1.prize && obj2.prize<=obj3.prize)
-     			System.out.println("Lowest product is: "+obj2.pname);
-       		if(obj3.prize<=obj1.prize && obj3.prize<=obj2.prize)
-     			System.out.println("Lowest product is: "+obj3.pname);
- 	}
+    String FindLowestPrice(Product p1, Product p2) {
+        if (p1.price < p2.price && p1.price < price)
+            return p1.pname;
+        if (p2.price < p1.price && p2.price < price)
+            return p2.pname;
+        else
+            return pname;
+    }
+}
+
+public class ProductMain {
+    public static void main(String[] args) {
+        Product p1 = new Product("P1", "SOAP", 45);
+        Product p2 = new Product("P2", "PEN", 10);
+        Product p3 = new Product("P3", "BOOK", 25);
+
+        String lname;
+
+        lname = p3.FindLowestPrice(p1, p2);
+
+        System.out.println("\nProduct having lowest price is : " + lname + "\n");
+
+    }
 }
