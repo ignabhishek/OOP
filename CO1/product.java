@@ -30,6 +30,6 @@ public class ProductMain {
         lname = p3.FindLowestPrice(p1, p2);
 
         System.out.println("\nProduct having lowest price is : " + lname + "\n");
-
+        
     }
 }
