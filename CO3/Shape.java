@@ -1,93 +1,68 @@
-import java.util.*;
-import java.lang.*;
 
-interface Shape {
-    float pi = 3.14F;
-    float area();
-    float perimeter();
-}
+import java.util.Scanner;
 
-class Circle implements Shape {
-    Scanner sc = new Scanner(System.in);
-    int r;
-
-    public float area() {
-        System.out.print("Enter the radius : ");
-        r = Integer.parseInt(sc.nextLine());
-        return (pi * r * r);
-
-    }
-
-    public float perimeter() {
-        System.out.print("Enter the radius : ");
-        r = Integer.parseInt(sc.nextLine());
-        return (2 * pi * r);
-    }
-
-}
-
-class Rectangle implements Shape {
-    Scanner sc = new Scanner(System.in);
-    int l, b;
-
-    public float area() {
-        System.out.print("Enter the Length : ");
-        l = Integer.parseInt(sc.nextLine());
-        System.out.print("Enter the breadth : ");
-        b = Integer.parseInt(sc.nextLine());
-        return (l * b);
-
-    }
-
-    public float perimeter() {
-        System.out.print("Enter the Length : ");
-        l = Integer.parseInt(sc.nextLine());
-        System.out.print("Enter the breadth : ");
-        b = Integer.parseInt(sc.nextLine());
-        return (2 * (l + b));
-
+class Shape{
+    float x;
+    Shape(float a){
+        x=a;
     }
 }
 
-class Shape {
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        Circle c = new Circle();
-        Rectangle r = new Rectangle();
-        int ch;
-        while (true) {
-            System.out.println("1:Area of Circle");
-            System.out.println("2:Perimeter of Circle");
-            System.out.println("3:Area of Rectangle");
-            System.out.println("4:Perimter of Rectangle");
-            System.out.println("5:EXIT");
-            System.out.println("enter choice ");
-            ch = Integer.parseInt(sc.nextLine());
-            switch (ch) {
-                case 1:
-                    float ar = c.area();
-                    System.out.println("Area  :" + ar);
-                    break;
-                case 2:
-                    float pr = c.perimeter();
-                    System.out.println(pr);
-                    break;
-                case 3:
-                    float a = r.area();
-                    System.out.println("Area :" + a);
-                    break;
-                case 4:
-                    float pr1 = r.perimeter();
-                    System.out.println(pr1);
-                    break;
-                case 5:
-                    System.out.println("Exiting the Program");
-                    System.exit(0);
-                default:
-                    System.out.println("invalid!");
+class Square extends Shape{
+    Square(float s){
+        super(s);
+    }
+    void Area(float x){
+        System.out.println("The area of Square is : "+(x*x));
+    }
+}
 
-            }
-        }
+class Rectangle extends Shape{
+    float y;   
+    Rectangle(float l,float b){
+        super(l);
+        y=b;
+    }
+    void Area(float x,float y){
+        System.out.println("The area of Rectangle is : "+(x*y));
+    }
+}
 
+class Circle extends Shape{
+    Circle(float r){
+        super(r);
+    }
+    void Area(double x){
+        double z=Math.PI*x*x;
+        System.out.println("The area of the Circle is : "+z);
+    }
+}
+
+public class Overload {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+
+        float SqSide;
+        float Length;
+        float Breadth;
+        float Radious;
+
+        System.out.println("Enter the Side of the Square : ");
+        SqSide=sc.nextFloat();
+        Square p=new Square(SqSide);
+
+        System.out.println("Enter the Length of the Reactangle : ");
+        Length=sc.nextFloat();
+        System.out.println("Enter the Breadth of the Rectangle : ");
+        Breadth=sc.nextFloat();
+        Rectangle lb=new Rectangle(Length, Breadth);
+
+        System.out.println("Enter the Radious of the Circle : ");
+        Radious=sc.nextFloat();
+        Circle r=new Circle(Radious);
+
+        p.Area(SqSide);
+        lb.Area(Length, Breadth);
+        r.Area(Radious);
     }
 }
