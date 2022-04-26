@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 class Shape{
@@ -33,14 +32,14 @@ class Circle extends Shape{
         super(r);
     }
     void Area(double x){
-        double z=Math.PI*x*x;
+        double z = Math.PI*x*x;
         System.out.println("The area of the Circle is : "+z);
     }
 }
 
 public class Overload {
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         float SqSide;
         float Length;
@@ -48,22 +47,21 @@ public class Overload {
         float Radious;
 
         System.out.println("Enter the Side of the Square : ");
-        SqSide=sc.nextFloat();
-        Square p=new Square(SqSide);
+        SqSide = sc.nextFloat();
+        Square p = new Square(SqSide);
 
         System.out.println("Enter the Length of the Reactangle : ");
-        Length=sc.nextFloat();
+        Length = sc.nextFloat();
         System.out.println("Enter the Breadth of the Rectangle : ");
-        Breadth=sc.nextFloat();
-        Rectangle lb=new Rectangle(Length, Breadth);
+        Breadth = sc.nextFloat();
+        Rectangle lb = new Rectangle(Length, Breadth);
 
         System.out.println("Enter the Radious of the Circle : ");
-        Radious=sc.nextFloat();
-        Circle r=new Circle(Radious);
+        Radious = sc.nextFloat();
+        Circle r = new Circle(Radious);
 
         p.Area(SqSide);
         lb.Area(Length, Breadth);
         r.Area(Radious);
     }
 }
-
